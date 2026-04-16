@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Geology Lab | AgriSmart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(6, 78, 59, 0.7)), 
+                        url('https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        video#bg{
+            position:fixed;
+            top:0;left:0;
+            width:100%;height:100%;
+            object-fit:cover;
+            z-index:-2;
+            }
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .upload-zone {
+            border: 2px dashed rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+        }
+        .upload-zone:hover {
+            border-color: #F59E0B;
+            background: rgba(245, 158, 11, 0.05);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-6">
+     <video id="bg" autoplay muted loop>
+    <source src="{{ url_for('static', filename='3.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="max-w-3xl w-full">
+        <a href="/dashboard" class="text-white/50 hover:text-orange-400 font-bold text-xs tracking-widest mb-8 inline-block transition">
+            ← BACK TO HUB
+        </a>
+
+        <div class="glass-container rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+            <div class="flex items-center space-x-4 mb-10 border-b border-white/10 pb-8">
+                <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center border border-orange-500/50">
+                    <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black text-white uppercase tracking-tight">
+                        Soil Geology <span class="text-orange-400">Lab</span>
+                    </h1>
+                    <p class="text-gray-400 text-xs font-bold tracking-widest uppercase">
+                        Subsurface Composition Analysis
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <!-- Upload Section -->
+                <div>
+                    <h2 class="text-sm font-black text-white uppercase tracking-widest mb-6 border-l-4 border-orange-500 pl-4">
+                        Submit Sample
+                    </h2>
+
+                    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+                        <div class="upload-zone rounded-3xl p-8 text-center h-52 flex flex-col items-center justify-center">
+
+                            <input type="file" name="image" id="file-upload" class="hidden" onchange="updateFileName()">
+
+                            <label for="file-upload" class="cursor-pointer group w-full">
+
+                                <div class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition">
+                                    <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                    </svg>
+                                </div>
+
+                                <p id="file-name" class="text-white font-bold text-sm">
+                                    Upload Core Sample Image
+                                </p>
+
+                                <p class="text-gray-500 text-xs mt-1">
+                                    PNG, JPG up to 10MB
+                                </p>
+
+                            </label>
+
+                        </div>
+
+                        <button type="submit"
+                        class="w-full bg-orange-500 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:shadow-orange-500/20 hover:scale-[1.02] transition transform">
+                            Analyze Composition
+                        </button>
+
+                    </form>
+                </div>
+
+
+                <!-- Result Section -->
+                <div>
+
+                    <h2 class="text-sm font-black text-white uppercase tracking-widest mb-6 border-l-4 border-orange-500 pl-4">
+                        Analysis Report
+                    </h2>
+
+                    {% if image_path %}
+                    <div class="mb-6 text-center">
+                        <img src="{{ image_path }}" 
+                        class="rounded-xl mx-auto h-40 border border-orange-500">
+                    </div>
+                    {% endif %}
+
+                    {% if result %}
+                    <div class="bg-orange-500/10 rounded-3xl p-6 border border-orange-500/30 text-center mb-6">
+                        <p class="text-gray-400 text-xs font-bold uppercase mb-2">
+                            Classified Soil Type
+                        </p>
+                        <p class="text-white text-3xl font-black italic tracking-tight">
+                            {{ result }}
+                        </p>
+                    </div>
+                    {% else %}
+                    <div class="bg-white/5 rounded-3xl p-10 border border-white/10 text-center mb-6 h-52 flex items-center justify-center">
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-widest">
+                            Waiting for sample upload...
+                        </p>
+                    </div>
+                    {% endif %}
+
+                    {% if recommendations %}
+
+                    <div class="bg-white/5 rounded-3xl p-6 border border-white/10">
+
+                        <h3 class="text-orange-400 text-xs font-bold uppercase mb-3">
+                            Best Crop Yield Recommendation
+                        </h3>
+
+                        <ul class="text-white text-sm space-y-2">
+
+                            {% for tip in recommendations %}
+
+                            <li>• {{ tip }}</li>
+
+                            {% endfor %}
+
+                        </ul>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center mt-8 text-white/20 text-[10px] font-black tracking-[0.4em] uppercase">
+            Soil Geology Analysis Engine v1.8
+        </p>
+
+    </div>
+
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('file-upload');
+            const fileName = document.getElementById('file-name');
+            if (input.files.length > 0) {
+                fileName.innerText = input.files[0].name;
+                fileName.classList.add('text-orange-400');
+            }
+        }
+    </script>
+
+</body>
+</html>

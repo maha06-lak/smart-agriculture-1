@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSmart Pro | Enterprise Monitoring</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-zoom { overflow: hidden; }
+        .hero-zoom img { transition: transform 20s linear; transform: scale(1); }
+        .hero-zoom:hover img { transform: scale(1.1); }
+        .stat-card:hover { border-bottom: 4px solid #ADFF2F; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC]">
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-[#064E3B] rounded-xl flex items-center justify-center shadow-lg">
+                <svg viewBox="0 0 24 24" class="w-6 h-6 fill-[#ADFF2F]" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+            </div>
+            <div>
+                <span class="text-xl font-extrabold text-[#064E3B] tracking-tight block leading-none">AGRI<span class="text-green-500">SMART</span></span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Systems Pro</span>
+            </div>
+        </div>
+        
+        <div class="hidden lg:flex space-x-10 font-semibold text-sm text-slate-600 uppercase tracking-wider">
+            <a href="#home" class="hover:text-green-600 transition">Solutions</a>
+            <a href="#analytics" class="hover:text-green-600 transition">Analytics</a>
+            <a href="#process" class="hover:text-green-600 transition">How it Works</a>
+         
+        </div>
+
+        <div class="flex items-center space-x-6">
+            <a href="/auth" class="text-sm font-bold text-slate-700 hover:text-green-600">CLIENT LOGIN</a>
+            
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen flex items-center justify-center hero-zoom pt-20">
+        <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&q=80&w=2000" class="absolute inset-0 w-full h-full object-cover" alt="Smart Farming">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#064E3B]/90 to-transparent"></div>
+        
+        <div class="relative z-10 w-full max-w-7xl px-8 grid lg:grid-cols-2">
+            <div class="text-white">
+                <div class="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-3 py-1 rounded-md mb-6">
+                    <span class="w-2 h-2 bg-[#ADFF2F] rounded-full animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest uppercase text-[#ADFF2F]">System Live: Global Regions</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-black mb-8 leading-none">
+                    Precision <br><span class="text-[#ADFF2F]">Harvesting.</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-10 max-w-lg leading-relaxed border-l-4 border-[#ADFF2F] pl-6">
+                    Combining Satellite IoT and On-Ground AI to deliver the world's most accurate agricultural monitoring platform.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="/auth">
+                    <button class="bg-[#ADFF2F] text-[#064E3B] px-10 py-4 rounded-xl font-black text-lg hover:scale-105 transition shadow-2xl">
+                    GET STARTED
+                    </button>
+                    </a>
+                                        
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analytics" class="py-20 bg-white px-8">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="stat-card p-8 bg-[#F8FAFC] rounded-2xl transition-all">
+                <p class="text-4xl font-black text-[#064E3B] mb-2">98.2%</p>
+                <p class="text-slate-500 font-bold text-sm uppercase">Detection Accuracy</p>
+            </div>
+            <div class="stat-card p-8 bg-[#F8FAFC] rounded-2xl transition-all">
+                <p class="text-4xl font-black text-[#064E3B] mb-2">40%</p>
+                <p class="text-slate-500 font-bold text-sm uppercase">Water Conservation</p>
+            </div>
+            <div class="stat-card p-8 bg-[#F8FAFC] rounded-2xl transition-all">
+                <p class="text-4xl font-black text-[#064E3B] mb-2">12k+</p>
+                <p class="text-slate-500 font-bold text-sm uppercase">Connected Farms</p>
+            </div>
+            <div class="stat-card p-8 bg-[#F8FAFC] rounded-2xl transition-all">
+                <p class="text-4xl font-black text-[#064E3B] mb-2">Real-Time</p>
+                <p class="text-slate-500 font-bold text-sm uppercase">Cloud Sync</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div class="max-w-xl">
+                <h2 class="text-sm font-black text-green-600 uppercase tracking-widest mb-4">The Ecosystem</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">Advanced Monitoring Modules</h3>
+            </div>
+            <p class="text-slate-500 max-w-sm">Our 2026 suite integrates three distinct AI engines to cover every square inch of your land.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <div class="group">
+                <div class="relative overflow-hidden rounded-3xl mb-6">
+                   <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">01. IRRIGATION</div>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Irrigation Monitor</h4>
+                <p class="text-slate-600 mb-6 leading-relaxed">Smart sensors that communicate with your pumps. Save resources by watering only when the soil signals a deficit.</p>
+                <button class="font-bold text-[#064E3B] flex items-center space-x-2"><span>Learn more</span> <span class="group-hover:translate-x-2 transition">→</span></button>
+            </div>
+
+            <div class="group">
+                <div class="relative overflow-hidden rounded-3xl mb-6">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">02. PATHOLOGY</div>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Disease Detection</h4>
+                <p class="text-slate-600 mb-6 leading-relaxed">Neural network analysis that scans leaf pigments to identify fungal or bacterial infections before they spread.</p>
+                <button class="font-bold text-[#064E3B] flex items-center space-x-2"><span>Learn more</span> <span class="group-hover:translate-x-2 transition">→</span></button>
+            </div>
+
+            <div class="group">
+                <div class="relative overflow-hidden rounded-3xl mb-6">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=800" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 left-4 bg-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">03. GEOLOGY</div>
+                </div>
+                <h4 class="text-2xl font-bold mb-4">Soil Classification</h4>
+                <p class="text-slate-600 mb-6 leading-relaxed">Chemical composition mapping that tells you exactly which fertilizer to use and which crop will thrive.</p>
+                <button class="font-bold text-[#064E3B] flex items-center space-x-2"><span>Learn more</span> <span class="group-hover:translate-x-2 transition">→</span></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-24 bg-[#064E3B] text-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold mb-4">Simple Implementation</h2>
+                <p class="text-green-300">Three steps to a smarter field</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-16 relative">
+                <div class="text-center relative">
+                    <div class="w-20 h-20 bg-[#ADFF2F] text-[#064E3B] flex items-center justify-center rounded-full text-3xl font-black mx-auto mb-6">1</div>
+                    <h5 class="text-xl font-bold mb-4">Deploy Sensors</h5>
+                    <p class="text-green-100/70">Place our low-maintenance IoT nodes throughout your acreage.</p>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-20 h-20 bg-[#ADFF2F] text-[#064E3B] flex items-center justify-center rounded-full text-3xl font-black mx-auto mb-6">2</div>
+                    <h5 class="text-xl font-bold mb-4">Sync App</h5>
+                    <p class="text-green-100/70">Connect your mobile device to receive real-time alerts and maps.</p>
+                </div>
+                <div class="text-center relative">
+                    <div class="w-20 h-20 bg-[#ADFF2F] text-[#064E3B] flex items-center justify-center rounded-full text-3xl font-black mx-auto mb-6">3</div>
+                    <h5 class="text-xl font-bold mb-4">Optimize Yield</h5>
+                    <p class="text-green-100/70">Watch your ROI grow as waste drops and crop health improves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-20 pb-10 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-8 h-8 bg-[#064E3B] rounded-lg flex items-center justify-center">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-[#ADFF2F]" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+                    </div>
+                    <span class="text-xl font-extrabold text-[#064E3B]">AGRISMART</span>
+                </div>
+                <p class="text-slate-500 max-w-sm mb-8">Empowering the next generation of farmers with data-driven confidence.</p>
+                <div class="flex space-x-4">
+                    <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-100 transition">IN</div>
+                    <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-100 transition">TW</div>
+                </div>
+            </div>
+            <div>
+                <h6 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Resources</h6>
+                <ul class="space-y-4 text-slate-500 text-sm font-medium">
+                    <li><a href="#" class="hover:text-green-600">Hardware Guide</a></li>
+                    <li><a href="#" class="hover:text-green-600">Case Studies</a></li>
+                    <li><a href="#" class="hover:text-green-600">API Documentation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="font-bold text-slate-900 mb-6 uppercase tracking-widest text-xs">Company</h6>
+                <ul class="space-y-4 text-slate-500 text-sm font-medium">
+                    <li><a href="#" class="hover:text-green-600">About Us</a></li>
+                    <li><a href="#" class="hover:text-green-600">Sustainability Report</a></li>
+                    <li><a href="#" class="hover:text-green-600">Contact Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center border-t border-gray-50 pt-10">
+            <p class="text-xs font-bold text-slate-400">&copy; 2026 AGRISMART SYSTEMS. PIONEERING THE FUTURE OF SUSTAINABLE AGRICULTURE.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
